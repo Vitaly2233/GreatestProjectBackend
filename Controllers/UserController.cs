@@ -7,14 +7,9 @@ namespace SimpleApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UserController : ControllerBase
+public class UserController(AppDbContext appDbContext) : ControllerBase
 {
-    private readonly AppDbContext db;
-
-    public UserController(AppDbContext appDbContext)
-    {
-        db = appDbContext;
-    }
+    private readonly AppDbContext db = appDbContext;
 
     [HttpPost]
     public async Task<ActionResult> CreateUser([FromBody] User user)

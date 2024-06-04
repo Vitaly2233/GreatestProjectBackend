@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace SimpleApi.Models;
 
@@ -11,5 +10,8 @@ public class Order
     [StringLength(100)]
     public required string Name { get; set; }
 
-    public required ICollection<Product> Products { get; set; }
+    public ICollection<Product>? Products { get; set; }
+
+    [Required]
+    public User? User { get; set; }
 }

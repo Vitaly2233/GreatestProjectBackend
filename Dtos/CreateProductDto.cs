@@ -1,14 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SimpleApi.Models;
+namespace SimpleApi.Dto;
 
-public class Product
+public class CreateProductDto
 {
-    public int Id { get; set; }
-
     [Required]
     [StringLength(100)]
     public required string Name { get; set; }
-
-    public ICollection<Order>? Orders { get; set; }
 }
